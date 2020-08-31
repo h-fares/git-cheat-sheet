@@ -41,4 +41,16 @@ To do that we go to the project folder and open it in the terminal then we type 
 
 After initilize the git project, a ```.git/``` folder will be added (it will be hidden). This folder is a git repository for this project, and a Git repository tracks all changes made to files in your project, building a history over time. Meaning, if you delete the .git/ folder, then you delete your project’s history.
 
+### Git workflow
+The Git prject has always a three areas: 
+ * Working directory: is where our files were just created
+ * staging area: is where we add all changed files. In this area all files will be tracked
+ * a repository
+ 
+When we make a new file in the git project, it will not be direct tracked, we have to tell git to track and decument all changes in this file, to do that we have to add this file to the stage area by typing ```git add <FILE_NAME>```.
 
+After adding the file to the stage area, you have to commit all changes in all files that you hav done, and it is always recommended to add message with the commit using this command: ```git commit -m "YOUR_MESSAGE"```.
+
+After *commit* all changes Git will automaticlly move all changes to the repository (third area) and save them.
+
+ 
