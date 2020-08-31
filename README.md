@@ -1,7 +1,7 @@
 # git-cheat-sheet
 
-## What is the version controll system(VCS)?
-The version controll system allows the developer to make many versions of there application, they can save every step of there work in a version so they can go back to any step they want and get it again.
+## What is the version control system(VCS)?
+The version control system allows the developer to make many versions of there application, they can save every step of there work in a version so they can go back to any step they want and get it again.
 
 This system helps the developers to save there works and and make them sure that whatever the changes are, they can go back to the last step and get the last version.
 
@@ -47,10 +47,46 @@ The Git prject has always a three areas:
  * staging area: is where we add all changed files. In this area all files will be tracked
  * a repository
  
-When we make a new file in the git project, it will not be direct tracked, we have to tell git to track and decument all changes in this file, to do that we have to add this file to the stage area by typing ```git add <FILE_NAME>```.
+When we make a new file in the git project or make a changes to a file in the project, it will not be direct tracked, we have to tell git to track and decument all changes in this file, to do that we have to add this file to the stage area by typing ```git add <FILE_NAME>```.
 
 After adding the file to the stage area, you have to commit all changes in all files that you hav done, and it is always recommended to add message with the commit using this command: ```git commit -m "YOUR_MESSAGE"```.
 
 After *commit* all changes Git will automaticlly move all changes to the repository (third area) and save them.
 
- 
+To compaire between files, commits or fils in stage area and file in the repository, use this command ```git diff``` 
+
+To see all files in the repository, use this command: ```git rm <FILENAME>```
+
+
+ ## Remote version control system
+Is a system based on version control system but with the ability to do all git stuff (save, add and commit changing) online, and to make the work on a project in team easier.
+
+As example we will talk about GitHub RVCS (but it is the same if you work on GitLab or any other RVCS)
+
+### GitHub
+#### make a ripository
+##### New Project
+To make a ripostory on GitHub you have two ways:
+ 1. do it online on the GitHub website by following the instructions.
+ 2. do it localy using the terminal:
+  * make a new folder with name of the project (e.g. NewProject)
+  * open the folder in the terminal
+  * type ```git init```
+  Now the git repository of the project (NweProject) has been created, but there is no file in the project/repository (on your GitHub account you will see just the repository name but nothing inside it) A readMe.md file is always recommended to be the first added file, so let's add it (once again in the terminal):
+  * ```touch readMe.md```
+  * ```git add readMe.md```
+  * ```git commit -m "First Commit"```
+  * ```remote add origin https://github.com/<USERNAME>/<RepositoryName>.git``` add this folder to the origin
+  * ```git push -u origin master``` push this origin to the master branch (Usually in this step git will ask you for the GitHub username and password)
+  Now the repository is created and readMe.md is added and now the project is ready to add files, directory, ect....
+   
+  
+##### Existing Folder/Project
+* open the folder/project in the terminal and then type
+*  ```remote add origin https://github.com/<USERNAME>/<RepositoryName>.git```
+* ```git push -u origin master```
+  
+  
+  
+  
+  
