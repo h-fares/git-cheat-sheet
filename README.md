@@ -64,6 +64,7 @@ Is a system based on version control system but with the ability to do all git s
 As example we will talk about GitHub RVCS (but it is the same if you work on GitLab or any other RVCS)
 
 ### GitHub
+Is where the people make there software 
 #### make a ripository
 ##### New Project
 To make a ripostory on GitHub you have two ways:
@@ -86,7 +87,42 @@ To make a ripostory on GitHub you have two ways:
 *  ```remote add origin https://github.com/<USERNAME>/<RepositoryName>.git```
 * ```git push -u origin master```
   
+
+#### Branches
+* The Branch is a copy of the project, will be used to develop a feature  or solve a problem without effect the whole project. 
+* A new created repository has at first one branch called *master*, every commit and push you do it will be done in the master branch.
+* A new branch can be splited from the master branch and developed separatly from the main project.
+* A branch can be created from any other branch.
+* A remote branch: is the online branch (e.g. Branch_A on GitHub)
+* A local branch: is the branch that you have it on your local desktop (Branch_A on your computer)
+* To create a branch (Branch_B) from another branch (Branch_A):
+  * go to the Branch_A (chackou to the Branch_A) by typing in the terminal: ```git checkout Branch_A```
+  * make the Branch_B by typing: ```git checkout -b Branch_B```
+* If you have an old version of the remote branch and you need to get the last version to your local branch, you have to pull: ```git pull```
+* After you finish developing the Branch_B you have to merge it into the parent branch (Branch_A):
+  * fetch the branch or get all update to out branches (without getting the changes to the local branches):```git fetch```
+  * check if the branches have received new changes on the remote: ```git branch -va```
+    * if a branch has received new changes on the remote, you have to pull this changes to your local branch: ```git chechout Branch_A``` and then ```git pull```
+  * now is every thing ready to be merged
+  * checkout to the Branch_A:```git checkout Branch_A```
+  * merge the Branch_B into Branch_A: ```git merge Branch_B```
   
+ 
+
   
-  
-  
+### Common Git Commands
+* ```git remote```: to see the main repository you connected with on GitHub (called as origin)
+* ```git remote -v```: to see the link of the repository on GitHub
+* ```ssh-keygen -t rsa -b 4096 -C "<YOUR_EMAIL>"```: to generate SSH key
+* ```ssh-add <SSH_FILE_NAME>```: add ssh key (Sometimes you could not connect to the authentication agent, so you have to type this command: eval $(ssh-agent -s))
+* ``` git init```: Turn an existing directory into a git repository
+* ```git clone <Repository_link>```: Clone (download) a repository that already exists on GitHub, including all of the files, branches, and commits
+* ``` git fetch``` :Downloads all history from the remote tracking branches
+* ``` git branch [branch-name]```: Creates a new branch
+* ``` git checkout [branch-name]```: Switches to the specified branch and updates the working directory
+* ``` git checkout -b [branch-name]```: create a new branch and switches to the specified branch
+* ``` git merge [branch]```: Combines the specified branch’s history into the current branch. This is usually done in pull requests, but is an important Git operation.
+* ``` git branch -d [branch-name]```: Deletes the specified branch
+* ``` git merge```: Combines remote tracking branch into current local branch
+* ``` git push```: Uploads all local branch commits to GitHub
+* ``` git pull```: Updates your current local working branch with all new commits from the corresponding remote branch on GitHub. git pull is a combination of git fetch and git merge 
