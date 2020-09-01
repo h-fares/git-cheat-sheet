@@ -126,3 +126,11 @@ To make a ripostory on GitHub you have two ways:
 * ``` git merge```: Combines remote tracking branch into current local branch
 * ``` git push```: Uploads all local branch commits to GitHub
 * ``` git pull```: Updates your current local working branch with all new commits from the corresponding remote branch on GitHub. git pull is a combination of git fetch and git merge 
+
+
+
+
+
+*based on*: 
+* [Git & GitHub Crash Course for Absolute Beginners [GitHub it]](https://www.udemy.com/course/git-and-github-crash-course/)
+* [Git Cheat Sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
