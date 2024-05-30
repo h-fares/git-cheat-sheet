@@ -1,4 +1,4 @@
-# git-cheat-sheet
+# Git Cheat Sheet
 
 ## What is the version control system(VCS)?
 The version control system allows the developer to make many versions of there application, they can save every step of there work in a version so they can go back to any step they want and get it again.
@@ -17,8 +17,7 @@ The VCS allowes to:
 
 On of the most famous VCS is ***git***.
 
-## Git
-### Git Install
+## Git Install
 To install git you have to downlad it from there Web site or simply click here [install git](https://git-scm.com/downloads), follow the instructions to install it on your OS.
 To test if the git is correctly installed type in the terminal:
 
@@ -28,109 +27,94 @@ or
 
 ```git --version```
 
-### Git configurations
-To see your git configurations type in the terminal ```git config --list``` and then a list will be showen. the most important configuration is *name* and *email*.
 
-To change the name type in the terminal: ```git config --globale user.name "<YOUR_NAME>"``` or to change the email: 
+## Configuration
+`git config --global user.name "Your Name"`: Set your name for Git commits.
 
-```git config --globale user.email "<YOUR_NAME>"```
+`git config --global user.email "your.email@example.com"`: Set your email for Git commits.
 
-### Create Git Project
-To create a git project we have to tell git in which directory is our project, and tell git to manage this folder by intilizing a git project.
-To do that we go to the project folder and open it in the terminal then we type this command: ```git init```
+## Creating Repositories
+`git init`: Initialize a new Git repository in the current directory.
 
-After initilize the git project, a ```.git/``` folder will be added (it will be hidden). This folder is a git repository for this project, and a Git repository tracks all changes made to files in your project, building a history over time. Meaning, if you delete the .git/ folder, then you delete your project’s history.
+`git clone [url]`: Clone a repository from a remote source (e.g., GitHub).
 
-### Git workflow
-The Git prject has always a three areas: 
- * Working directory: is where our files were just created
- * staging area: is where we add all changed files. In this area all files will be tracked
- * a repository
- 
-When we make a new file in the git project or make a changes to a file in the project, it will not be direct tracked, we have to tell git to track and decument all changes in this file, to do that we have to add this file to the stage area by typing ```git add <FILE_NAME>```.
+## Basic Snapshotting
+`git status`: Show the status of your working directory and staging area.
 
-After adding the file to the stage area, you have to commit all changes in all files that you hav done, and it is always recommended to add message with the commit using this command: ```git commit -m "YOUR_MESSAGE"```.
+`git add [file]`: Add a file to the staging area.
 
-After *commit* all changes Git will automaticlly move all changes to the repository (third area) and save them.
+`git add .`: Add all changes in the current directory to the staging area.
 
-To compaire between files, commits or fils in stage area and file in the repository, use this command ```git diff``` 
+`git commit -m "Commit message"`: Commit the staged changes with a descriptive message.
 
-To see all files in the repository, use this command: ```git rm <FILENAME>```
+`git commit -am "Commit message"`: Stage and commit all tracked files with a single command.
 
+## Branching and Merging
+`git branch`: List all local branches in the repository.
 
- ## Remote version control system
-Is a system based on version control system but with the ability to do all git stuff (save, add and commit changing) online, and to make the work on a project in team easier.
+`git branch [branch-name]`: Create a new branch.
 
-As example we will talk about GitHub RVCS (but it is the same if you work on GitLab or any other RVCS)
+`git checkout [branch-name]: Switch to the specified branch.
 
-### GitHub
-Is where the people make there software 
-#### make a ripository
-##### New Project
-To make a ripostory on GitHub you have two ways:
- 1. do it online on the GitHub website by following the instructions.
- 2. do it localy using the terminal:
-  * make a new folder with name of the project (e.g. NewProject)
-  * open the folder in the terminal
-  * type ```git init```
-  Now the git repository of the project (NweProject) has been created, but there is no file in the project/repository (on your GitHub account you will see just the repository name but nothing inside it) A readMe.md file is always recommended to be the first added file, so let's add it (once again in the terminal):
-  * ```touch readMe.md```
-  * ```git add readMe.md```
-  * ```git commit -m "First Commit"```
-  * ```remote add origin https://github.com/<USERNAME>/<RepositoryName>.git``` add this folder to the origin
-  * ```git push -u origin master``` push this origin to the master branch (Usually in this step git will ask you for the GitHub username and password)
-  Now the repository is created and readMe.md is added and now the project is ready to add files, directory, ect....
-   
-  
-##### Existing Folder/Project
-* open the folder/project in the terminal and then type
-*  ```remote add origin https://github.com/<USERNAME>/<RepositoryName>.git```
-* ```git push -u origin master```
-  
+`git checkout -b [branch-name]`: Create and switch to a new branch.
 
-#### Branches
-* The Branch is a copy of the project, will be used to develop a feature  or solve a problem without effect the whole project. 
-* A new created repository has at first one branch called *master*, every commit and push you do it will be done in the master branch.
-* A new branch can be splited from the master branch and developed separatly from the main project.
-* A branch can be created from any other branch.
-* A remote branch: is the online branch (e.g. Branch_A on GitHub)
-* A local branch: is the branch that you have it on your local desktop (Branch_A on your computer)
-* To create a branch (Branch_B) from another branch (Branch_A):
-  * go to the Branch_A (chackou to the Branch_A) by typing in the terminal: ```git checkout Branch_A```
-  * make the Branch_B by typing: ```git checkout -b Branch_B```
-* If you have an old version of the remote branch and you need to get the last version to your local branch, you have to pull: ```git pull```
-* After you finish developing the Branch_B you have to merge it into the parent branch (Branch_A):
-  * fetch the branch or get all update to out branches (without getting the changes to the local branches):```git fetch```
-  * check if the branches have received new changes on the remote: ```git branch -va```
-    * if a branch has received new changes on the remote, you have to pull this changes to your local branch: ```git chechout Branch_A``` and then ```git pull```
-  * now is every thing ready to be merged
-  * checkout to the Branch_A:```git checkout Branch_A```
-  * merge the Branch_B into Branch_A: ```git merge Branch_B```
-  
- 
+`git merge [branch-name]`: Merge the specified branch into the current branch.
 
-  
-### Common Git Commands
-* ```git remote```: to see the main repository you connected with on GitHub (called as origin)
-* ```git remote -v```: to see the link of the repository on GitHub
-* ```ssh-keygen -t rsa -b 4096 -C "<YOUR_EMAIL>"```: to generate SSH key
-* ```ssh-add <SSH_FILE_NAME>```: add ssh key (Sometimes you could not connect to the authentication agent, so you have to type this command: eval $(ssh-agent -s))
-* ``` git init```: Turn an existing directory into a git repository
-* ```git clone <Repository_link>```: Clone (download) a repository that already exists on GitHub, including all of the files, branches, and commits
-* ``` git fetch``` :Downloads all history from the remote tracking branches
-* ``` git branch [branch-name]```: Creates a new branch
-* ``` git checkout [branch-name]```: Switches to the specified branch and updates the working directory
-* ``` git checkout -b [branch-name]```: create a new branch and switches to the specified branch
-* ``` git merge [branch]```: Combines the specified branch’s history into the current branch. This is usually done in pull requests, but is an important Git operation.
-* ``` git branch -d [branch-name]```: Deletes the specified branch
-* ``` git merge```: Combines remote tracking branch into current local branch
-* ``` git push```: Uploads all local branch commits to GitHub
-* ``` git pull```: Updates your current local working branch with all new commits from the corresponding remote branch on GitHub. git pull is a combination of git fetch and git merge 
+`git branch -d [branch-name]`: Delete the specified branch.
 
+## Remote Repositories
+`git remote -v`: Show the URLs of remote repositories.
 
+`git remote add [name] [url]`: Add a new remote repository.
 
+`git fetch [remote]`: Fetch changes from the remote repository without merging.
 
+`git pull [remote]`: Fetch and merge changes from the remote repository.
 
-*based on*: 
-* [Git & GitHub Crash Course for Absolute Beginners [GitHub it]](https://www.udemy.com/course/git-and-github-crash-course/)
-* [Git Cheat Sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
+`git push [remote] [branch]`: Push changes to the remote repository.
+
+## Inspecting and Comparing
+`git log`: Show the commit history for the current branch.
+
+`git log --oneline`: Show the commit history with a summary (one line per commit).
+
+`git diff`: Show changes between working directory and staging area.
+
+`git diff --staged`: Show changes between staging area and last commit.
+
+`git show [commit]`: Show information about a specific commit.
+
+## Undoing Changes
+`git reset [file]`: Unstage a file while retaining changes in the working directory.
+
+`git checkout -- [file]`: Discard changes in the working directory.
+
+`git revert [commit]`: Create a new commit that undoes the changes from a previous commit.
+
+`git reset --hard [commit]`: Reset the working directory and staging area to a specific commit.
+
+## Stashing
+`git stash`: Stash the changes in the working directory for later use.
+
+`git stash list`: List all stashed changes.
+
+`git stash apply`: Apply the most recently stashed changes.
+
+`git stash drop`: Remove the most recently stashed changes.
+
+## Tagging
+`git tag`: List all tags in the repository.
+
+`git tag [tag-name]`: Create a new tag.
+
+`git push [remote] [tag-name]`: Push a specific tag to the remote repository.
+
+## Useful Aliases
+`git config --global alias.st status`: Create an alias for git status.
+
+`git config --global alias.ci commit`: Create an alias for git commit.
+
+`git config --global alias.co checkout`: Create an alias for git checkout.
+
+`git config --global alias.br branch`: Create an alias for git branch.
+
